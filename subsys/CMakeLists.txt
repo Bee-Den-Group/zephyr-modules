@@ -1,0 +1,3 @@
+
+add_subdirectory_ifdef(CONFIG_SUBSYS_MAX44009 max44009)
+add_subdirectory_ifdef(CONFIG_SUBSYS_BME280 bme280)

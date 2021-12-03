@@ -1,0 +1,59 @@
+
+menuconfig SUBSYS_BME280
+    bool "BME280 sensor sampling subsystem"
+    depends on BME280
+    help
+      Enable BME280 thread that continuously samples BME280 values.
+
+config SUBSYS_BME280_STACK_SIZE
+    int "BME280 thread stack size"
+    depends on SUBSYS_BME280
+    default 512
+    help
+      Size of BME280 thread stack
+
+config SUBSYS_BME280_THREAD_PRIORITY
+    int "BME280 thread priority"
+    depends on SUBSYS_BME280
+    default -3
+    help
+      Priority of the BME280 thread. Should be negative,
+      as sensor reads might fail if preempted.
+
+config SUBSYS_BME280_SAMPLING_RATE_MS
+    int "BME280 sampling rate (ms)"
+    depends on SUBSYS_BME280
+    default 2000
+    range 2000 1000000000
+    help
+      The sampling rate of the sensor in milliseconds. Needs to be at least
+      2000, as the sensor cannot sample faster.
+
+config SUBSYS_BME280_MAX_FETCH_ATTEMPTS
+    int "BME280 number of attempts to fetch new sample"
+    depends on SUBSYS_BME280
+    default 5
+    range 1 20
+    help
+      Maximum number of times a sample is requested until an error is raised
+
+config SUBSYS_BME280_CALLBACK_MAX_COUNT_TEMPERATURE
+    int "BME280 max callbacks for temperature"
+    depends on SUBSYS_BME280
+    default 10
+    help
+      Maximum number of temperature callbacks registered to the BME280 device
+
+config SUBSYS_BME280_CALLBACK_MAX_COUNT_HUMIDITY
+    int "BME280 max callbacks for humidity"
+    depends on SUBSYS_BME280
+    default 10
+    help
+      Maximum number of humidity callbacks registered to the BME280 device
+
+config SUBSYS_BME280_CALLBACK_MAX_COUNT_PRESSURE
+    int "BME280 max callbacks for pressure"
+    depends on SUBSYS_BME280
+    default 10
+    help
+      Maximum number of pressure callbacks registered to the BME280 device

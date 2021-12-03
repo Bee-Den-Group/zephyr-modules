@@ -1,0 +1,4 @@
+comment "Device Drivers"
+
+rsource "display/Kconfig"
+rsource "battery/Kconfig"

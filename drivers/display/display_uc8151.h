@@ -1,0 +1,87 @@
+/*
+ * Copyright (c) 2020 PHYTEC Messtechnik GmbH
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#ifndef ZEPHYR_DRIVERS_DISPLAY_UC8151_REGS_H_
+#define ZEPHYR_DRIVERS_DISPLAY_UC8151_REGS_H_
+
+#define UC8151_CMD_PSR				0x00
+#define UC8151_CMD_PWR				0x01
+#define UC8151_CMD_POF				0x02
+#define UC8151_CMD_PFS				0x03
+#define UC8151_CMD_PON				0x04
+#define UC8151_CMD_PMES				0x05
+#define UC8151_CMD_BTST				0x06
+#define UC8151_CMD_DSLP				0x07
+#define UC8151_CMD_DTM1				0x10
+#define UC8151_CMD_DSP				0x11
+#define UC8151_CMD_DRF				0x12
+#define UC8151_CMD_DTM2				0x13
+#define UC8151_CMD_AUTO				0x17
+#define UC8151_CMD_LUTOPT			0x2A
+#define UC8151_CMD_PLL				0x30
+#define UC8151_CMD_TSC				0x40
+#define UC8151_CMD_TSE				0x41
+#define UC8151_CMD_TSW				0x42
+#define UC8151_CMD_TSR				0x43
+#define UC8151_CMD_PBC				0x44
+#define UC8151_CMD_CDI				0x50
+#define UC8151_CMD_LPD				0x51
+#define UC8151_CMD_TCON				0x60
+#define UC8151_CMD_TRES				0x61
+#define UC8151_CMD_GSST				0x65
+#define UC8151_CMD_REV				0x70
+#define UC8151_CMD_FLG				0x71
+#define UC8151_CMD_AMV				0x80
+#define UC8151_CMD_VV				0x81
+#define UC8151_CMD_VDCS				0x82
+#define UC8151_CMD_PTL				0x90
+#define UC8151_CMD_PTIN				0x91
+#define UC8151_CMD_PTOUT			0x92
+#define UC8151_CMD_PGM				0xA0
+#define UC8151_CMD_APG				0xA1
+#define UC8151_CMD_ROTP				0xA2
+#define UC8151_CMD_CCSET			0xE0
+#define UC8151_CMD_PWS				0xE3
+#define UC8151_CMD_LVSEL			0xE4
+#define UC8151_CMD_TSSET			0xE5
+
+#define UC8151_PSR_REG				BIT(5)
+#define UC8151_PSR_KW_R				BIT(4)
+#define UC8151_PSR_UD				BIT(3)
+#define UC8151_PSR_SHL				BIT(2)
+#define UC8151_PSR_SHD				BIT(1)
+#define UC8151_PSR_RST				BIT(0)
+
+#define UC8151_AUTO_PON_DRF_POF			0xA5
+#define UC8151_AUTO_PON_DRF_POF_DSLP		0xA7
+
+#define UC8151_CDI_REG_LENGTH			2U
+#define UC8151_CDI_BDZ_DDX_IDX			0
+#define UC8151_CDI_CDI_IDX			1
+#define UC8151_CDI_BDZ				BIT(7)
+#define UC8151_CDI_BDV1				BIT(5)
+#define UC8151_CDI_BDV0				BIT(4)
+#define UC8151_CDI_N2OCP			BIT(3)
+#define UC8151_CDI_DDX1				BIT(1)
+#define UC8151_CDI_DDX0				BIT(0)
+
+#define UC8151_TRES_REG_LENGTH			4U
+#define UC8151_TRES_HRES_IDX			0
+#define UC8151_TRES_VRES_IDX			2
+
+#define UC8151_PTL_REG_LENGTH			9U
+#define UC8151_PTL_HRST_IDX			0
+#define UC8151_PTL_HRED_IDX			2
+#define UC8151_PTL_VRST_IDX			4
+#define UC8151_PTL_VRED_IDX			6
+#define UC8151_PTL_PT_SCAN			BIT(0)
+
+/* Time constants in ms */
+#define UC8151_RESET_DELAY			10U
+#define UC8151_PON_DELAY			100U
+#define UC8151_BUSY_DELAY			1U
+
+#endif /* ZEPHYR_DRIVERS_DISPLAY_UC8151_REGS_H_ */

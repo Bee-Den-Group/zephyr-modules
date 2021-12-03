@@ -1,0 +1,46 @@
+
+menuconfig SUBSYS_MAX44009
+    bool "MAX44009 sensor sampling subsystem"
+    depends on MAX44009
+    help
+      Enable MAX44009 thread that continuously samples MAX44009 values.
+
+config SUBSYS_MAX44009_STACK_SIZE
+    int "MAX44009 thread stack size"
+    depends on SUBSYS_MAX44009
+    default 512
+    help
+      Size of MAX44009 thread stack
+
+config SUBSYS_MAX44009_THREAD_PRIORITY
+    int "MAX44009 thread priority"
+    depends on SUBSYS_MAX44009
+    default -3
+    help
+      Priority of the MAX44009 thread. Should be negative,
+      as sensor reads might fail if preempted.
+
+config SUBSYS_MAX44009_SAMPLING_RATE_MS
+    int "MAX44009 sampling rate (ms)"
+    depends on SUBSYS_MAX44009
+    default 2000
+    range 2000 1000000000
+    help
+      The sampling rate of the sensor in milliseconds. Needs to be at least
+      2000, as the sensor cannot sample faster.
+
+config SUBSYS_MAX44009_MAX_FETCH_ATTEMPTS
+    int "MAX44009 number of attempts to fetch new sample"
+    depends on SUBSYS_MAX44009
+    default 5
+    range 1 20
+    help
+      Maximum number of times a sample is requested until an error is raised
+
+config SUBSYS_MAX44009_CALLBACK_MAX_COUNT_AMBIENT_LIGHT
+    int "MAX44009 max callbacks for ambient light"
+    depends on SUBSYS_MAX44009
+    default 10
+    help
+      Maximum number of ambien light callbacks registered to the MAX44009 device
+      

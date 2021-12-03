@@ -1,0 +1,3 @@
+
+add_subdirectory_ifdef(CONFIG_DRIVERS_DISPLAY display)
+add_subdirectory_ifdef(CONFIG_DRIVERS_BATTERY battery)

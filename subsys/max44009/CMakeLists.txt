@@ -1,0 +1,4 @@
+
+zephyr_library_named(subsys_max44009)
+zephyr_library_sources_ifdef(CONFIG_SUBSYS_MAX44009 max44009.c)
+zephyr_include_directories(.)
