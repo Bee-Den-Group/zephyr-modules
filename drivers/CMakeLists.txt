@@ -1,3 +1,6 @@
 
 add_subdirectory_ifdef(CONFIG_DRIVERS_DISPLAY display)
 add_subdirectory_ifdef(CONFIG_DRIVERS_BATTERY battery)
+add_subdirectory_ifdef(CONFIG_DRIVERS_MS8607 ms8607)
+add_subdirectory_ifdef(CONFIG_DRIVER_VEML6030 veml6030)
+add_subdirectory_ifdef(CONFIG_DRIVER_SENSEAIR_S8 senseair_s8)
