@@ -1,0 +1,44 @@
+
+menuconfig SUBSYS_BATTERY
+    bool "BATTERY sensor sampling subsystem"
+    depends on ADC
+    help
+      Enable battery measurement thread that continuously samples battery ADC values.
+
+config SUBSYS_BATTERY_STACK_SIZE
+    int "BATTERY thread stack size"
+    depends on SUBSYS_BATTERY
+    default 512
+    help
+      Size of BATTERY thread stack
+
+config SUBSYS_BATTERY_THREAD_PRIORITY
+    int "BATTERY thread priority"
+    depends on SUBSYS_BATTERY
+    default -3
+    help
+      Priority of the BATTERY thread. Should be negative,
+      as sensor reads might fail if preempted.
+
+config SUBSYS_BATTERY_SAMPLING_RATE_MS
+    int "BATTERY sampling rate (ms)"
+    depends on SUBSYS_BATTERY
+    default 200000
+    range 2000 1000000000
+    help
+      The sampling rate of the sensor in milliseconds.
+
+config SUBSYS_BATTERY_MAX_FETCH_ATTEMPTS
+    int "BATTERY number of attempts to fetch new sample"
+    depends on SUBSYS_BATTERY
+    default 5
+    range 1 20
+    help
+      Maximum number of times a sample is requested until an error is raised
+
+config SUBSYS_BATTERY_CALLBACK_MAX_COUNT
+    int "BATTERY max callbacks"
+    depends on SUBSYS_BATTERY
+    default 10
+    help
+      Maximum number of battery callbacks
